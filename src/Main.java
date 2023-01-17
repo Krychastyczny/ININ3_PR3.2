@@ -1,7 +1,7 @@
 public class Main {
     public static void main(String[] args) {
         //Ctrl+p - podpowiedź
-        Car passat = new Car("vw", "passerati", 2001);
+        Car passat = new Car("vw", "passerati", 2001, 5000.0);
         passat.millage = 78000.0;
 
         //sout
@@ -12,7 +12,7 @@ public class Main {
 
         System.out.println();
 
-        Car fiat = new Car("fait", "bravo", 2010);
+        Car fiat = new Car("fait", "bravo", 2010, 10000.0);
         fiat.millage = 312321.5;
 
         System.out.println("Model auta: " + fiat.model);
@@ -35,6 +35,6 @@ public class Main {
         System.out.println();
 
         Human janek = new Human("Janek");
-        janek.car = new Car("audi", "a6", 2015);
+        janek.setCar(new Car("audi", "a6", 2015, 20000.0));
     }
 }
