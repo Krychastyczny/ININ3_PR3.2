@@ -1,18 +1,12 @@
 package devices;
 
-public class Car {
-    public String producer;
-    public String model;
-    public Integer yearOfProduction;
+public class Car extends Device {
     public Double millage;
     public Double value;
 
     //Alt+Insert
     public Car(String producer/*_*/, String model, Integer yearOfProduction, Double value) {
-//        producer = producer_;
-        this.producer = producer;
-        this.model = model;
-        this.yearOfProduction = yearOfProduction;
+        super(producer, model, yearOfProduction);
         this.millage = 0.0;
         this.value = value;
     }
@@ -31,5 +25,15 @@ public class Car {
                 ", millage=" + millage +
                 ", value=" + value +
                 '}';
+    }
+
+    @Override
+    public void turnOn() {
+        System.out.println("modlę się w intencji akumulatora");
+        System.out.println("przekręcam kluczyk");
+        System.out.println("kręci");
+        System.out.println("kręci");
+        System.out.println("kręci");
+        System.out.println("odpala");
     }
 }

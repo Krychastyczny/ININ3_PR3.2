@@ -58,5 +58,13 @@ public class Main {
         System.out.println(janek);
         System.out.println(nokia);
 
+        System.out.println();
+
+        Car car = new Car("VW", "Passat", 2010, 15000.0);
+        Phone phone = new Phone("Apple", "6S", 2018, 40.0, "");
+
+        car.turnOn();
+        System.out.println();
+        phone.turnOn();
     }
 }

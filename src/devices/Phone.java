@@ -1,16 +1,11 @@
 package devices;
 
-public class Phone {
-    String producer;
-    String model;
-    Integer yearOfProduction;
+public class Phone extends Device {
     Double screenSize;
     String os;
 
     public Phone(String producer, String model, Integer yearOfProduction, Double screenSize, String os) {
-        this.producer = producer;
-        this.model = model;
-        this.yearOfProduction = yearOfProduction;
+        super(producer, model, yearOfProduction);
         this.screenSize = screenSize;
         this.os = os;
     }
@@ -24,5 +19,16 @@ public class Phone {
                 ", screenSize=" + screenSize +
                 ", os='" + os + '\'' +
                 '}';
+    }
+
+    @Override
+    public void turnOn() {
+        System.out.println("wciskam przycisk");
+        System.out.println("czekam");
+        System.out.println("czekam");
+        System.out.println("czekam");
+        System.out.println("widzę logo");
+        System.out.println("czekam");
+        System.out.println("działa");
     }
 }
