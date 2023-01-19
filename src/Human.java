@@ -1,4 +1,5 @@
 import java.util.Date;
+import devices.Car;
 
 public class Human extends Animal {
     String firstName;
@@ -44,5 +45,19 @@ public class Human extends Animal {
         } else {
             System.out.println("Zapisz się na studia i znajdź nową robotę albo idź po podwyżkę.");
         }
+    }
+
+    @Override
+    public String toString() {
+        return "Human{" +
+                "firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", car=" + car +
+                ", salary=" + salary +
+                ", species='" + species + '\'' +
+                ", name='" + name + '\'' +
+                ", weight=" + weight +
+                ", alive=" + alive +
+                '}';
     }
 }

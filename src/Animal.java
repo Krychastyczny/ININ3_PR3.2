@@ -37,4 +37,14 @@ public class Animal {
     private void printInsults() {
         System.out.println("Trochę za późno debilu");
     }
+
+    @Override
+    public String toString() {
+        return "Animal{" +
+                "species='" + species + '\'' +
+                ", name='" + name + '\'' +
+                ", weight=" + weight +
+                ", alive=" + alive +
+                '}';
+    }
 }
