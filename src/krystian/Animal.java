@@ -1,4 +1,6 @@
-public class Animal {
+package krystian;
+
+public class Animal implements Salleable {
     String species;
     String name;
     Double weight;
@@ -46,5 +48,22 @@ public class Animal {
                 ", weight=" + weight +
                 ", alive=" + alive +
                 '}';
+    }
+
+    @Override
+    public void sell(Human seller, Human buyer, Double price) {
+        if (this instanceof Human) {
+            System.out.println("Zakaz sprzedaży ludzi");
+        } else if (seller.animal != this) {
+            System.out.println("Sprzedający nie posiada tego zwierzęcia");
+        } else if (buyer.cash < price) {
+            System.out.println("Kupujący ma za mało gotówki");
+        } else {
+            buyer.cash -= price;
+            seller.cash += price;
+            buyer.animal = this;
+            seller.animal = null;
+            System.out.println(buyer.firstName + " kupił " + this.species + " od " + seller.firstName + " za " + price);
+        }
     }
 }

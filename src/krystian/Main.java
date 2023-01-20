@@ -1,5 +1,7 @@
-import devices.Car;
-import devices.Phone;
+package krystian;
+
+import krystian.devices.Car;
+import krystian.devices.Phone;
 
 public class Main {
     public static void main(String[] args) {
@@ -66,5 +68,22 @@ public class Main {
         car.turnOn();
         System.out.println();
         phone.turnOn();
+
+        System.out.println();
+
+        Human mirek = new Human("Mirek");
+        janek.car = car;
+        mirek.cash = 15000.0;
+        car.sell(janek, mirek, 10000.0);
+        System.out.println();
+        janek.phone = phone;
+        phone.sell(janek, mirek, 1000.0);
+        System.out.println();
+        janek.animal = kot;
+        kot.sell(janek, mirek, 2000.0);
+        System.out.println();
+        Human darek = new Human("Darek");
+        janek.animal = darek;
+        darek.sell(janek, mirek, 1000.0);
     }
 }

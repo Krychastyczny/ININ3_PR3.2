@@ -1,4 +1,4 @@
-package devices;
+package krystian.devices;
 
 public class Car extends Device {
     public Double millage;

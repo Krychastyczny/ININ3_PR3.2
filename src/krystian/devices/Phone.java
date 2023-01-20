@@ -1,4 +1,4 @@
-package devices;
+package krystian.devices;
 
 public class Phone extends Device {
     Double screenSize;

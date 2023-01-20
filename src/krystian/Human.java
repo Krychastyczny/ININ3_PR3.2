@@ -1,17 +1,24 @@
+package krystian;
+
 import java.util.Date;
-import devices.Car;
+import krystian.devices.Car;
+import krystian.devices.Phone;
 
 public class Human extends Animal {
-    String firstName;
-    String lastName;
-    private Car car;
+    public String firstName;
+    public String lastName;
+    public Car car;
+    public Phone phone;
+    public Animal animal;
     private Double salary;
+    public Double cash;
 
     public Human(String firstName) {
         super("homo sapiens");
         this.weight = 70.0;
         this.salary = 0.0;
         this.firstName = firstName;
+        this.cash = 0.0;
     }
 
     public Double getSalary() {
