@@ -72,7 +72,7 @@ public class Main {
         System.out.println();
 
         Human mirek = new Human("Mirek");
-        janek.car = car;
+        janek.setCar(null, car);
         mirek.cash = 15000.0;
         car.sell(janek, mirek, 10000.0);
         System.out.println();

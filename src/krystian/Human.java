@@ -7,7 +7,7 @@ import krystian.devices.Phone;
 public class Human extends Animal {
     public String firstName;
     public String lastName;
-    public Car car;
+    private Car car;
     public Phone phone;
     public Animal animal;
     private Double salary;
@@ -51,6 +51,17 @@ public class Human extends Animal {
             this.car = car;
         } else {
             System.out.println("Zapisz się na studia i znajdź nową robotę albo idź po podwyżkę.");
+        }
+    }
+
+    public void setCar(Object seller, Object car) {
+        if (car instanceof Car) {
+            this.car = (Car) car;
+        } else {
+            this.car = null;
+        }
+        if (seller instanceof Human) {
+            ((Human) seller).setCar(null, null);
         }
     }
 

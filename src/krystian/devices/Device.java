@@ -26,7 +26,7 @@ public abstract class Device implements krystian.Salleable {
 
     @Override
     public void sell(Human seller, Human buyer, Double price) {
-        if (this instanceof Car && seller.car != this) {
+        if (this instanceof Car && seller.getCar() != this) {
             System.out.println("Sprzedający nie posiada tego samochodu");
         } else if (this instanceof Phone && seller.phone != this) {
             System.out.println("Sprzedający nie posiada tego telefonu");
@@ -36,8 +36,7 @@ public abstract class Device implements krystian.Salleable {
             buyer.cash -= price;
             seller.cash += price;
             if (this instanceof Car) {
-                buyer.car = (Car) this;
-                seller.car = null;
+                buyer.setCar(seller, this);
             } else if (this instanceof Phone) {
                 buyer.phone = (Phone) this;
                 seller.phone = null;
