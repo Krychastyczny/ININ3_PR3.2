@@ -1,4 +1,4 @@
-package krystian;
+package krystian.creatures;
 
 import java.util.Date;
 import krystian.devices.Car;

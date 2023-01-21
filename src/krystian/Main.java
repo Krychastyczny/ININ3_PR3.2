@@ -1,5 +1,8 @@
 package krystian;
 
+import krystian.creatures.FarmAnimal;
+import krystian.creatures.Human;
+import krystian.creatures.Pet;
 import krystian.devices.Car;
 import krystian.devices.Phone;
 
@@ -29,7 +32,7 @@ public class Main {
 
         System.out.println();
 
-        Animal kot = new Animal("kot");
+        Pet kot = new Pet("kot");
 
         kot.feed();
         kot.takeForAWalk();
@@ -85,5 +88,11 @@ public class Main {
         Human darek = new Human("Darek");
         janek.animal = darek;
         darek.sell(janek, mirek, 1000.0);
+
+        System.out.println();
+
+        FarmAnimal krowa = new FarmAnimal("krowa");
+        krowa.feed(4.0);
+        krowa.beEaten();
     }
 }

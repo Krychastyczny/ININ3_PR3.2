@@ -1,6 +1,9 @@
-package krystian;
+package krystian.creatures;
 
-public class Animal implements Salleable {
+import krystian.Feedable;
+import krystian.Salleable;
+
+public abstract class Animal implements Salleable, Feedable {
     String species;
     String name;
     Double weight;
@@ -11,15 +14,6 @@ public class Animal implements Salleable {
         this.name = "Zwierz";
         this.weight = 1.0;
         this.alive = true;
-    }
-
-    public void feed() {
-        if (this.alive) {
-            this.weight += 0.5;
-            System.out.println("Dzięki za żarcie");
-        } else {
-            printInsults();
-        }
     }
 
     public void takeForAWalk() {
@@ -64,6 +58,26 @@ public class Animal implements Salleable {
             buyer.animal = this;
             seller.animal = null;
             System.out.println(buyer.firstName + " kupił " + this.species + " od " + seller.firstName + " za " + price);
+        }
+    }
+
+    @Override
+    public void feed() {
+        if (this.alive) {
+            this.weight += 0.5;
+            System.out.println("Dzięki za żarcie");
+        } else {
+            printInsults();
+        }
+    }
+
+    @Override
+    public void feed(Double foodWeight) {
+        if (this.alive) {
+            this.weight += foodWeight;
+            System.out.println("Dzięki za żarcie");
+        } else {
+            printInsults();
         }
     }
 }
