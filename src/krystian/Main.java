@@ -3,13 +3,20 @@ package krystian;
 import krystian.creatures.FarmAnimal;
 import krystian.creatures.Human;
 import krystian.creatures.Pet;
-import krystian.devices.Car;
 import krystian.devices.Phone;
+import krystian.devices.cars.Diesel;
+import krystian.devices.cars.Electric;
+import krystian.devices.cars.LPG;
+
+import java.net.MalformedURLException;
+import java.net.URL;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Main {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws MalformedURLException {
         //Ctrl+p - podpowiedź
-        Car passat = new Car("vw", "passerati", 2001, 5000.0);
+        LPG passat = new LPG("vw", "passerati", 2001, 5000.0);
         passat.millage = 78000.0;
 
         //sout
@@ -20,7 +27,7 @@ public class Main {
 
         System.out.println();
 
-        Car fiat = new Car("fait", "bravo", 2010, 10000.0);
+        Diesel fiat = new Diesel("fait", "bravo", 2010, 10000.0);
         fiat.millage = 312321.5;
 
         System.out.println("Model auta: " + fiat.model);
@@ -43,12 +50,12 @@ public class Main {
         System.out.println();
 
         Human janek = new Human("Janek");
-        janek.setCar(new Car("audi", "a6", 2015, 20000.0));
+        janek.setCar(new Electric("audi", "a6", 2015, 20000.0));
 
         System.out.println();
 
-        Car fait = new Car("fait", "126p", 2001, 5000.0);
-        Car fait1 = new Car("fait", "126p", 2001, 5000.0);
+        Diesel fait = new Diesel("fait", "126p", 2001, 5000.0);
+        Diesel fait1 = new Diesel("fait", "126p", 2001, 5000.0);
         System.out.println(fait.equals(fait1));
 
         System.out.println(fait);
@@ -65,7 +72,7 @@ public class Main {
 
         System.out.println();
 
-        Car car = new Car("VW", "Passat", 2010, 15000.0);
+        Electric car = new Electric("VW", "Passat", 2010, 15000.0);
         Phone phone = new Phone("Apple", "6S", 2018, 40.0, "");
 
         car.turnOn();
@@ -94,5 +101,28 @@ public class Main {
         FarmAnimal krowa = new FarmAnimal("krowa");
         krowa.feed(4.0);
         krowa.beEaten();
+
+        System.out.println();
+
+        phone.installAnnApp("facebook");
+        phone.installAnnApp("youtube", "4.23.1");
+        phone.installAnnApp("twitch", "nightly-built", "http://noika-apps.com");
+
+        List<String> apps = new ArrayList<String>();
+        apps.add("instagram");
+        apps.add("tiktok");
+        apps.add("google maps");
+
+        phone.installAnnApp(apps);
+
+        URL chrome = new URL("https", "play.google.com", "chrome");
+
+        phone.installAnnApp(chrome);
+
+        System.out.println();
+
+        passat.refuel();
+        fiat.refuel();
+        car.refuel();
     }
 }

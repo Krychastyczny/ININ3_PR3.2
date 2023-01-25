@@ -1,7 +1,7 @@
 package krystian.creatures;
 
 import java.util.Date;
-import krystian.devices.Car;
+import krystian.devices.cars.Car;
 import krystian.devices.Phone;
 
 public class Human extends Animal {

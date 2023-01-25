@@ -1,6 +1,7 @@
 package krystian.devices;
 
 import krystian.creatures.Human;
+import krystian.devices.cars.Car;
 
 public abstract class Device implements krystian.Salleable {
     public final String producer;

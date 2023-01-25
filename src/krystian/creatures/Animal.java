@@ -4,6 +4,7 @@ import krystian.Feedable;
 import krystian.Salleable;
 
 public abstract class Animal implements Salleable, Feedable {
+    public final static Double DEFAULT_FOOD_WEIGHT = 0.5;
     String species;
     String name;
     Double weight;
@@ -63,12 +64,7 @@ public abstract class Animal implements Salleable, Feedable {
 
     @Override
     public void feed() {
-        if (this.alive) {
-            this.weight += 0.5;
-            System.out.println("Dzięki za żarcie");
-        } else {
-            printInsults();
-        }
+        this.feed(DEFAULT_FOOD_WEIGHT);
     }
 
     @Override

@@ -1,6 +1,8 @@
-package krystian.devices;
+package krystian.devices.cars;
 
-public class Car extends Device {
+import krystian.devices.Device;
+
+public abstract class Car extends Device {
     public Double millage;
     public Double value;
 
@@ -36,4 +38,6 @@ public class Car extends Device {
         System.out.println("kręci");
         System.out.println("odpala");
     }
+
+    public abstract void refuel();
 }
