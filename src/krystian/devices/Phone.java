@@ -10,8 +10,8 @@ public class Phone extends Device {
     Double screenSize;
     String os;
 
-    public Phone(String producer, String model, Integer yearOfProduction, Double screenSize, String os) {
-        super(producer, model, yearOfProduction);
+    public Phone(String producer, String model, Integer yearOfProduction, Double screenSize, String os, Double value) {
+        super(producer, model, yearOfProduction, value);
         this.screenSize = screenSize;
         this.os = os;
     }

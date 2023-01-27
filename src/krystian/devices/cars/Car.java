@@ -2,15 +2,15 @@ package krystian.devices.cars;
 
 import krystian.devices.Device;
 
+import java.util.Comparator;
+
 public abstract class Car extends Device {
     public Double millage;
-    public Double value;
 
     //Alt+Insert
     public Car(String producer/*_*/, String model, Integer yearOfProduction, Double value) {
-        super(producer, model, yearOfProduction);
+        super(producer, model, yearOfProduction, value);
         this.millage = 0.0;
-        this.value = value;
     }
 
     public void drive() {
@@ -40,4 +40,13 @@ public abstract class Car extends Device {
     }
 
     public abstract void refuel();
+
+    public static class CompareByYearOfProduction implements Comparator<Car> {
+        public int compare(Car carOne, Car carTwo) {
+            if (carOne != null && carTwo != null) {
+                return carOne.yearOfProduction.compareTo(carTwo.yearOfProduction);
+            }
+            return 0;
+        }
+    }
 }

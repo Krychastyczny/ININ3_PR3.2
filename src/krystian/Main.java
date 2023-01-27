@@ -3,20 +3,22 @@ package krystian;
 import krystian.creatures.FarmAnimal;
 import krystian.creatures.Human;
 import krystian.creatures.Pet;
+import krystian.devices.Device;
 import krystian.devices.Phone;
+import krystian.devices.cars.Car;
 import krystian.devices.cars.Diesel;
 import krystian.devices.cars.Electric;
 import krystian.devices.cars.LPG;
 
-import java.net.MalformedURLException;
+import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 
 public class Main {
-    public static void main(String[] args) throws MalformedURLException {
+    public static void main(String[] args) throws IOException {
         //Ctrl+p - podpowiedź
-        LPG passat = new LPG("vw", "passerati", 2001, 5000.0);
+        LPG passat = new LPG("vw", "passerati", 2003, 5000.0);
         passat.millage = 78000.0;
 
         //sout
@@ -50,7 +52,8 @@ public class Main {
         System.out.println();
 
         Human janek = new Human("Janek");
-        janek.setCar(new Electric("audi", "a6", 2015, 20000.0));
+        Electric audi = new Electric("audi", "a6", 2015, 20000.0);
+        janek.setCar(audi);
 
         System.out.println();
 
@@ -63,7 +66,7 @@ public class Main {
 
         System.out.println();
 
-        Phone nokia = new Phone("nokia", "3310", 2000, 64.0, "");
+        Phone nokia = new Phone("nokia", "3310", 2000, 64.0, "", 600.0);
 
         System.out.println(passat);
         System.out.println(kot);
@@ -73,7 +76,7 @@ public class Main {
         System.out.println();
 
         Electric car = new Electric("VW", "Passat", 2010, 15000.0);
-        Phone phone = new Phone("Apple", "6S", 2018, 40.0, "");
+        Phone phone = new Phone("Apple", "6S", 2018, 40.0, "", 2000.0);
 
         car.turnOn();
         System.out.println();
@@ -82,7 +85,12 @@ public class Main {
         System.out.println();
 
         Human mirek = new Human("Mirek");
-        janek.setCar(null, car);
+        janek.setSalary(18000.0);
+        try {
+            janek.setCar(car, Device.getParkingLotNumberIfBuyerHasAFreeSpace(janek));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
         mirek.cash = 15000.0;
         car.sell(janek, mirek, 10000.0);
         System.out.println();
@@ -106,9 +114,9 @@ public class Main {
 
         phone.installAnnApp("facebook");
         phone.installAnnApp("youtube", "4.23.1");
-        phone.installAnnApp("twitch", "nightly-built", "http://noika-apps.com");
+        phone.installAnnApp("twitch", "nightly-built", Phone.DEFAULT_PROTOCOL + "://noika-apps.com");
 
-        List<String> apps = new ArrayList<String>();
+        List<String> apps = new ArrayList<>();
         apps.add("instagram");
         apps.add("tiktok");
         apps.add("google maps");
@@ -124,5 +132,36 @@ public class Main {
         passat.refuel();
         fiat.refuel();
         car.refuel();
+
+        System.out.println();
+
+        Human bartek = new Human("Bartek", 4);
+        double salary = janek.getSalary();
+        bartek.setSalary(salary);
+        bartek.cash = 50000.0;
+        try {
+            bartek.setCar(audi, Device.getParkingLotNumberIfBuyerHasAFreeSpace(bartek));
+            bartek.setCar(passat, Device.getParkingLotNumberIfBuyerHasAFreeSpace(bartek));
+            bartek.setCar(fait, 3);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        System.out.println(bartek.getCar(0));
+
+        System.out.println(bartek.getValueOfAllCars());
+
+        System.out.println();
+        for (Car carInGarage : bartek.getGarage()) {
+            System.out.println(carInGarage);
+        }
+        System.out.println();
+
+        bartek.sortAllCarsByYearOfProduction();
+        for (Car carInGarage : bartek.getGarage()) {
+            System.out.println(carInGarage);
+        }
+        System.out.println();
+
+        car.sell(mirek, bartek, 2000.0);
     }
 }
