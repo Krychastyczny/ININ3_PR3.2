@@ -1,4 +1,4 @@
-package krystian;
+package krystian.creatures;
 
 public interface Feedable {
     void feed();

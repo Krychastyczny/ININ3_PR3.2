@@ -1,9 +1,10 @@
 package krystian.devices;
 
 import krystian.creatures.Human;
+import krystian.creatures.Salleable;
 import krystian.devices.cars.Car;
 
-public abstract class Device implements krystian.Salleable {
+public abstract class Device implements Salleable {
     public final String producer;
     public final String model;
     public final Integer yearOfProduction;

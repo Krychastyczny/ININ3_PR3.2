@@ -1,8 +1,5 @@
 package krystian.creatures;
 
-import krystian.Feedable;
-import krystian.Salleable;
-
 public abstract class Animal implements Salleable, Feedable {
     public final static Double DEFAULT_FOOD_WEIGHT = 0.5;
     String species;
