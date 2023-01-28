@@ -4,7 +4,8 @@ import krystian.creatures.FarmAnimal;
 import krystian.creatures.Human;
 import krystian.creatures.Pet;
 import krystian.devices.Device;
-import krystian.devices.Phone;
+import krystian.devices.phone.Application;
+import krystian.devices.phone.Phone;
 import krystian.devices.cars.Car;
 import krystian.devices.cars.Diesel;
 import krystian.devices.cars.Electric;
@@ -168,5 +169,22 @@ public class Main {
         car.checkIfThisSellerSoldThisCarToThisBuyer(mirek, bartek);
         int sumTransactions = car.getSumOfSalesTransactionsThisCar();
         System.out.println("Ilość wszystkich transakcji tego samochodu to " + sumTransactions);
+
+        System.out.println();
+
+        phone.setOwner(mirek);
+        Application gta = new Application("GTA 4", "latest-stable", 150.0);
+        Application youtube = new Application("youtube", "latest-stable", 0.0);
+        Application spotify = new Application("spotify", "latest-stable", 20.0);
+        mirek.phone.installApp(gta);
+        mirek.phone.installApp(youtube);
+        mirek.phone.installApp(spotify);
+
+        phone.checkIfApplicationIsDownloaded(gta);
+        phone.checkIfApplicationIsDownloaded("youtube");
+        phone.showAllFreeApplication();
+        System.out.println("Suma cen wszystkich aplikacji: " + phone.getPriceAllApplication());
+        phone.getAllApplicationSortByName();
+        phone.getAllApplicationSortByPrice();
     }
 }

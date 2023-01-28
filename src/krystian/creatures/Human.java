@@ -6,7 +6,7 @@ import java.util.Collections;
 import java.util.Date;
 
 import krystian.devices.cars.Car;
-import krystian.devices.Phone;
+import krystian.devices.phone.Phone;
 
 public class Human extends Animal {
     private static final String HUMAN_SPECIES = "homo sapiens";

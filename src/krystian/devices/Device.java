@@ -3,6 +3,7 @@ package krystian.devices;
 import krystian.creatures.Human;
 import krystian.creatures.Salleable;
 import krystian.devices.cars.Car;
+import krystian.devices.phone.Phone;
 
 public abstract class Device implements Salleable {
     public final String producer;
@@ -91,7 +92,7 @@ public abstract class Device implements Salleable {
         }
     }
 
-    private void checkIfBuyerHasACash(Human buyer, Double price) throws Exception {
+    public void checkIfBuyerHasACash(Human buyer, Double price) throws Exception {
         if (buyer.cash < price) {
             throw new Exception("Kupujący ma za mało gotówki");
         }
