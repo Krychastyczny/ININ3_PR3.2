@@ -163,5 +163,10 @@ public class Main {
         System.out.println();
 
         car.sell(mirek, bartek, 2000.0);
+        car.checkIfCarHasOwner();
+        car.checkIfThisSellerSoldThisCarToThisBuyer("salon samochodowy", janek);
+        car.checkIfThisSellerSoldThisCarToThisBuyer(mirek, bartek);
+        int sumTransactions = car.getSumOfSalesTransactionsThisCar();
+        System.out.println("Ilość wszystkich transakcji tego samochodu to " + sumTransactions);
     }
 }

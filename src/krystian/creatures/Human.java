@@ -80,9 +80,11 @@ public class Human extends Animal {
         } else if (this.salary > car.value) {
             System.out.println("Udało się kupić za gotówkę.");
             this.garage[parkingLotNumber] = car;
+            car.addNewOwnerToList(this, car.value);
         } else if (this.salary > car.value / 12) {
             System.out.println("Udało się kupić na kredyt (no trudno).");
             this.garage[parkingLotNumber] = car;
+            car.addNewOwnerToList(this, car.value);
         } else {
             System.out.println("Zapisz się na studia i znajdź nową robotę albo idź po podwyżkę.");
         }

@@ -35,6 +35,7 @@ public abstract class Device implements krystian.Salleable {
                 int sellerParkingLotNumber = getParkingLotNumberIfSellerHasAThisCar(seller, (Car) this);
                 int buyerParkingLotNumber = getParkingLotNumberIfBuyerHasAFreeSpace(buyer);
                 changCarOwner(seller, buyer, (Car) this, sellerParkingLotNumber, buyerParkingLotNumber);
+                ((Car) this).addNewOwnerToList(buyer, seller, price);
             } else if (this instanceof Phone) {
                 checkIfSellerHasAPhone(seller, (Phone) this);
                 changOwner(seller, buyer, this);
@@ -58,6 +59,12 @@ public abstract class Device implements krystian.Salleable {
         }
         if (parkingLotNumber < 0) {
             throw new Exception("Sprzedający nie posiada tego samochodu");
+        } else {
+            HistoryTransaction historyTransaction = car.historyTransaction.get(car.historyTransaction.size() - 1);
+            Human owner = historyTransaction.getBuyer();
+            if (seller != owner) {
+                throw new Exception("Sprzedający nie jest właścicielem tego samochodu");
+            }
         }
         return parkingLotNumber;
     }
